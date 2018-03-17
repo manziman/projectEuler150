@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	// "fmt"
 	"sync"
 	"errors"
 )
@@ -100,40 +100,6 @@ func LeastTriangle(tri Triangle) (int64, error) {
 }
 
 func main() {
-	// Test case 1: simple
-	triangle := [][]int{[]int{1}, []int{1,2}, []int{1,2,3}, []int{-1,-2,-3,-4}}
 
-	if v, err := LeastTriangle(triangle); err != nil{
-		err.Error()
-	} else {
-		fmt.Printf("Least triangle: %v\n\n", v)
-	}
-
-	// Test case 2: more complex
-	triangle = [][]int{[]int{15}, []int{-14,-7}, []int{20,-13,-5}, []int{-3,8,23,-26}, []int{1,-4,-5,-18,5}, []int{-16,31,2,9,28,3}}
-
-	if v, err := LeastTriangle(triangle); err != nil{
-		err.Error()
-	} else {
-		fmt.Printf("Least triangle: %v\n\n", v)
-	}
-
-	// Test case 3: nil triangle
-	triangle = make([][]int, 0)
-
-	if v, err := LeastTriangle(triangle); err != nil{
-		err.Error()
-	} else {
-		fmt.Printf("Least triangle: %v\n\n", v)
-	}
-
-	// Test case 4: bad argument
-	triangle = [][]int{[]int{15}, []int{1,2,3}, []int{20,-13,-5}, []int{-3,8,23,-26}, []int{1,-4,-5,-18,5}, []int{-16,31,2,9,28,3}}
-
-	if v, err := LeastTriangle(triangle); err != nil{
-		err.Error()
-	} else {
-		fmt.Printf("Least triangle: %v\n\n", v)
-	}
-	// LeastTriangle(nil)
+	LeastTriangle(nil)
 }

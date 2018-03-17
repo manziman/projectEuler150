@@ -6,6 +6,7 @@ import (
 	"time"
 	//"math/rand"
 	//"errors"
+	"math"
 )
 
 func TestReturns(t *testing.T) {
@@ -42,13 +43,15 @@ func TestReturns(t *testing.T) {
 
 	fmt.Println("Running test case 3...")
 	// Test 3: Really really big triangle runtime test, if you want to max out your CPU for a few minutes...
-	/*var bigTriangle [][]int
+	var bigTriangle [][]int
+	var tmp int
 	for i := 0; i < 1000; i++ {
-		var t []int
+		var s []int
 		for j:= 0; j < i+1; j++ {
-			t = append(t, rand.Int())
+			tmp = (615949*tmp + 797807) % int(math.Pow(2, 20))
+			s = append(s, tmp - int(math.Pow(2, 19)))
 		}
-		bigTriangle = append(bigTriangle, t)
+		bigTriangle = append(bigTriangle, s)
 	}
 
 	start = time.Now()
@@ -58,7 +61,7 @@ func TestReturns(t *testing.T) {
 		fmt.Printf("Least triangle: %v\n", v)
 	}
 	end = time.Since(start)
-	fmt.Printf("Runtime: %v\n\n", end)*/
+	fmt.Printf("Runtime: %v\n\n", end)
 }
 
 func TestError(t *testing.T) {
