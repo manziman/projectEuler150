@@ -38,6 +38,9 @@ func sumSlice(s []int) int64 {
 }
 
 func (t Triangle) sumTriangle(index int, sumChan chan int64, callback func()) {
+
+	defer callback()
+
 	var sum int64 = int64(t[0][index] + t[1][index] + t[1][index+1])
 
 	sumChan <-sum				  // Start off by adding the smallest triangle to the sum channel
@@ -46,7 +49,6 @@ func (t Triangle) sumTriangle(index int, sumChan chan int64, callback func()) {
 		sum += sumSlice(t[i][index:index+i+1])
 		sumChan <-sum
 	}
-	callback()
 }
 
 /*
