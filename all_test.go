@@ -43,15 +43,15 @@ func TestReturns(t *testing.T) {
 
 	fmt.Println("Running test case 3...")
 	// Test 3: Really really big triangle runtime test, if you want to max out your CPU for a few minutes...
-	var bigTriangle [][]int
+	var bigTriangle = make([][]int, 1000)
 	var tmp int
 	for i := 0; i < 1000; i++ {
-		var s []int
+		var s = make([]int, i+1)
 		for j:= 0; j < i+1; j++ {
 			tmp = (615949*tmp + 797807) % int(math.Pow(2, 20))
-			s = append(s, tmp - int(math.Pow(2, 19)))
+			s[j] = tmp - int(math.Pow(2, 19))
 		}
-		bigTriangle = append(bigTriangle, s)
+		bigTriangle[i] = s
 	}
 
 	start = time.Now()
